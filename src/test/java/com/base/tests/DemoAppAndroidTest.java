@@ -22,23 +22,27 @@ public class DemoAppAndroidTest extends BaseMobileTest {
         homePage.waitPageAppears();
     }
 
-    @Test(enabled = false)
+    @Test
     public void verifyHomePage() {
         homePage.tapToHomePage();
         homePage.waitPageAppears();
     }
 
     @Test
-    public void verifyWebviewPage() {
+    public void verifyWebviewContent() {
         webviewPage.tapToWebViewPage();
         webviewPage.waitNativePageAppears();
         webviewPage.switchToWebview();
-        webviewPage.verifyWebViewContentDisplayed();
+
+        assertThat(webviewPage.isWebViewContentDisplayed())
+                .as("Webview content is not displayed")
+                .isTrue();
+
         webviewPage.switchToDefaultContent();
     }
 
 
-    @Test(enabled = false)
+    @Test
     public void verifySwipePage() {
         swipePage.tapToSwipePage();
         swipePage.waitPageAppears();

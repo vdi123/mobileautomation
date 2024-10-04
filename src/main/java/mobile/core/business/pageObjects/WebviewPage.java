@@ -3,12 +3,8 @@ package mobile.core.business.pageObjects;
 import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-public class WebviewPage extends BaseMobilePage {
+public class WebviewPage extends BaseWebviewPage {
 
     public WebviewPage(DriverManager driverManager) {
         super(driverManager);
@@ -26,8 +22,7 @@ public class WebviewPage extends BaseMobilePage {
         baseWaits.waitElementAppeared(WEB_VIEW_NATIVE_PAGE);
     }
 
-    public void verifyWebViewContentDisplayed() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.presenceOfElementLocated(HERO_SUBTITLE_WEBVIEW_CONTENT));
+    public boolean isWebViewContentDisplayed() {
+        return waitForElementPresence(driver, HERO_SUBTITLE_WEBVIEW_CONTENT);
     }
 }
