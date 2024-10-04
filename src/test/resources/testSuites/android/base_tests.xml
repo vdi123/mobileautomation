@@ -11,7 +11,7 @@
 
     <test name="Android base tests">
         <classes>
-            <class name="com.base.tests.AndroidTest"/>
+            <class name="com.base.tests.DemoAppAndroidTest"/>
         </classes>
     </test>
 </suite>

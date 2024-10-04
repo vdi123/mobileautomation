@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class AndroidTest extends BaseMobileTest {
+public class DemoAppAndroidTest extends BaseMobileTest {
 
     private HomePage homePage;
     private SwipePage swipePage;
