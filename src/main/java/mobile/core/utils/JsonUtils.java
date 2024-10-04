@@ -27,7 +27,7 @@ public class JsonUtils {
     }
 
     public static String readFileToString(String path) throws IOException, URISyntaxException {
-        URL resource = JsonUtils.class.getResource(path);
+        URL resource = JsonUtils.class.getClassLoader().getResource(path);
         File file = java.nio.file.Paths.get(resource.toURI()).toFile();
         return FileUtils.readFileToString(file, StandardCharsets.UTF_8);
     }

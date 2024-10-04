@@ -8,6 +8,7 @@ import lombok.Getter;
 import mobile.core.business.businessObjects.DeviceData;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,8 +18,10 @@ import static io.appium.java_client.remote.MobilePlatform.IOS;
 
 public class DriverManager {
 
+    protected static final int DEFAULT_COMMAND_TIMEOUT = 60000;
+
     @Getter
-    private String mainPlatform;
+    public static String mainPlatform;
     private DeviceData deviceData;
     protected AppiumDriverLocalService service;
     protected Map<String, Object> capabilities = new HashMap<>();
@@ -30,15 +33,20 @@ public class DriverManager {
     }
 
     public AppiumDriver getMobileDriver() {
-        initLocalService(4723);
-        switch (mainPlatform) {
-            case ANDROID:
-                return initAndroidDriver();
-            case IOS:
-                return initIOSDriver();
-            default:
-                throw new RuntimeException("Unsupported OS");
+        if (this.driver == null) {
+            initLocalService(4723);
+            switch (mainPlatform) {
+                case ANDROID:
+                    driver = initAndroidDriver();
+                    break;
+                case IOS:
+                    driver = initIOSDriver();
+                    break;
+                default:
+                    throw new RuntimeException("Unsupported OS");
+            }
         }
+        return driver;
     }
 
     protected void initLocalService(int port) {
@@ -60,9 +68,14 @@ public class DriverManager {
         capabilities.put("appium:" + ALLOW_INVISIBLE_ELEMENTS.toString(), true);
         capabilities.put("appium:udid", deviceData.getUdid());
         capabilities.put("platformName", mainPlatform);
+        capabilities.put("appium:newCommandTimeout", DEFAULT_COMMAND_TIMEOUT);
         capabilities.put("appium:automationName", "UiAutomator2");
         capabilities.put("appium:appPackage", "com.wdiodemoapp");
         capabilities.put("appium:appActivity", "com.wdiodemoapp.MainActivity");
+
+        String chromedriverPath = new File(DriverManager.class.getClassLoader().getResource("chromedriver/chromedriver.exe")
+                .getFile()).getAbsolutePath();
+        capabilities.put("appium:chromedriverExecutable", chromedriverPath);
 
         return new AndroidDriver(service.getUrl(), new DesiredCapabilities(capabilities));
     }
