@@ -36,9 +36,9 @@ public class ElementInteractions {
 
     public void swipeVertical(WebElement webElement) {
         Point point = webElement.getRect().getPoint();
-        int startX = point.getX() / 2; // Середина экрана по ширине
-        int startY = (int) (point.getY() * 0.20);  // Начало на 20% от высоты экрана
-        int endY = (int) (point.getY() * 0.80);    // Конец на 80% от высоты экрана
+        int startX = point.getX() / 2;
+        int startY = (int) (point.getY() * 0.20);
+        int endY = (int) (point.getY() * 0.80);
 
 
         PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
