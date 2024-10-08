@@ -29,7 +29,7 @@ public class BasePage {
     }
 
     private static final Element HOME_PAGE = new Element(
-            "Webdriver text",
+            "Home page",
             AppiumBy.accessibilityId("Home"),
             By.name("N/A"));
 

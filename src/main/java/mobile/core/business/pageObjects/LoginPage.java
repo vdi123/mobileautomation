@@ -1,6 +1,7 @@
 package mobile.core.business.pageObjects;
 
 import io.appium.java_client.AppiumBy;
+import mobile.core.business.businessObjects.User;
 import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
 import org.openqa.selenium.By;
@@ -27,9 +28,9 @@ public class LoginPage extends BasePage {
             By.name("N/A"));
 
 
-    public void login(String email, String password) {
-        actions.setValue(EMAIL_INPUT, email);
-        actions.setValue(PASSWORD_INPUT, email);
+    public void login(User user) {
+        actions.setValue(EMAIL_INPUT, user.getUsername());
+        actions.setValue(PASSWORD_INPUT, user.getPassword());
         actions.tap(LOGIN_BUTTON);
     }
 

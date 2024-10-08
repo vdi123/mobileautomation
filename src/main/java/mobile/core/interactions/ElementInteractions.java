@@ -100,11 +100,10 @@ public class ElementInteractions {
         Sequence dragAndDrop = new Sequence(finger, 0);
 
         dragAndDrop.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY)); // Начальная позиция
-        dragAndDrop.addAction(finger.createPointerDown(PointerInput.Kind.TOUCH.ordinal())); // Нажимаем
+        dragAndDrop.addAction(finger.createPointerDown(PointerInput.Kind.TOUCH.ordinal()));
         dragAndDrop.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, endY)); // Перемещение к конечной позиции
-        dragAndDrop.addAction(finger.createPointerUp(PointerInput.Kind.TOUCH.ordinal())); // Отпускаем
+        dragAndDrop.addAction(finger.createPointerUp(PointerInput.Kind.TOUCH.ordinal()));
 
-        // Выполняем действия
         driverManager.getMobileDriver().perform(Arrays.asList(dragAndDrop));
     }
 

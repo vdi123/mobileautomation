@@ -58,7 +58,7 @@ public class DemoAppTest extends BaseMobileTest {
     public void verifyLoginPage() {
         loginPage.tapToLoginPage();
         loginPage.waitPageAppears();
-        loginPage.login(user.getUsername(), user.getPassword());
+        loginPage.login(user);
 
         assertThat(loginPage.isAlertPresent()).as("Alert is not present").isTrue();
         loginPage.closeAlert();
