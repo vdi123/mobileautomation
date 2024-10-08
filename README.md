@@ -57,8 +57,8 @@ Before running the tests, please ensure the following configurations are set up:
       ```
     - When using `driverManager.getMobileDriver()`, the appropriate driver is returned based on the `platformName` parameter specified in `testng.xml`.
 
-5. **Element Interactions**
-    - Pages utilize the `ElementInteractions` class for all action methods:
+5. **Element Actions**
+    - Pages utilize the `ElementActions` class for all action methods:
       ```java
       public void tapToHomePage() {
           elementActions.tap(HOME_PAGE);
