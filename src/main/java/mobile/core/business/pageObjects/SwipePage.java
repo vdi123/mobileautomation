@@ -6,7 +6,7 @@ import mobile.core.entities.Element;
 import mobile.core.utils.Sleeper;
 import org.openqa.selenium.By;
 
-public class SwipePage extends BaseMobilePage {
+public class SwipePage extends BasePage {
 
     public SwipePage(DriverManager driverManager) {
         super(driverManager);

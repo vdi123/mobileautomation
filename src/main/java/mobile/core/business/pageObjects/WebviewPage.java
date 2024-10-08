@@ -23,6 +23,6 @@ public class WebviewPage extends BaseWebviewPage {
     }
 
     public boolean isWebViewContentDisplayed() {
-        return waitForElementPresence(driver, HERO_SUBTITLE_WEBVIEW_CONTENT);
+        return baseWaits.waitForElementPresence(HERO_SUBTITLE_WEBVIEW_CONTENT);
     }
 }

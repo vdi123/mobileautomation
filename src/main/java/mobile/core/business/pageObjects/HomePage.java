@@ -4,7 +4,7 @@ import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
 import org.openqa.selenium.By;
 
-public class HomePage extends BaseMobilePage {
+public class HomePage extends BasePage {
 
     public HomePage(DriverManager driverManager) {
         super(driverManager);

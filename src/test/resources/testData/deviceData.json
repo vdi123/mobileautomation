@@ -2,6 +2,7 @@
   "Emulator": {
     "deviceType": "fake",
     "udid": "emulator-5554",
-    "mobileDeviceName": "Emulator Pixel Fold"
+    "mobileDeviceName": "Emulator Pixel Fold",
+    "appPath": "testApp/android.wdio.native.app.v1.0.8.apk"
   }
 }

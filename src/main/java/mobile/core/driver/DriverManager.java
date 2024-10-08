@@ -70,12 +70,13 @@ public class DriverManager {
         capabilities.put("platformName", mainPlatform);
         capabilities.put("appium:newCommandTimeout", DEFAULT_COMMAND_TIMEOUT);
         capabilities.put("appium:automationName", "UiAutomator2");
-        capabilities.put("appium:appPackage", "com.wdiodemoapp");
-        capabilities.put("appium:appActivity", "com.wdiodemoapp.MainActivity");
 
         String chromedriverPath = new File(DriverManager.class.getClassLoader().getResource("chromedriver/chromedriver.exe")
                 .getFile()).getAbsolutePath();
+        String appPath = new File(DriverManager.class.getClassLoader().getResource(deviceData.getAppPath())
+                .getFile()).getAbsolutePath();
         capabilities.put("appium:chromedriverExecutable", chromedriverPath);
+        capabilities.put("appium:app", appPath);
 
         return new AndroidDriver(service.getUrl(), new DesiredCapabilities(capabilities));
     }

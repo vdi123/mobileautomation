@@ -15,7 +15,6 @@
     </properties>
 
     <dependencies>
-        <!-- Selenium Java Client -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
@@ -86,6 +85,16 @@
             <artifactId>slf4j-simple</artifactId>
             <version>1.7.21</version>
         </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-testng</artifactId>
+            <version>2.29.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-java-commons</artifactId>
+            <version>2.29.0</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -106,6 +115,16 @@
                     </properties>
                 </configuration>
             </plugin>
+
+            <plugin>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-maven</artifactId>
+            <version>2.14.0</version>
+            <configuration>
+                <reportVersion>2.29.0</reportVersion>
+                <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+            </configuration>
+        </plugin>
         </plugins>
     </build>
 

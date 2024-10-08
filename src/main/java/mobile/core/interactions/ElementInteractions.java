@@ -3,6 +3,7 @@ package mobile.core.interactions;
 
 import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
@@ -11,6 +12,8 @@ import org.openqa.selenium.interactions.Sequence;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ElementInteractions {
 
@@ -20,7 +23,7 @@ public class ElementInteractions {
         this.driverManager = driverManager;
     }
 
-    public void tap(WebElement webElement) {
+    private void tap(WebElement webElement) {
         Point point = webElement.getRect().getPoint();
         int centerX = point.getX() + (webElement.getSize().getWidth() / 2);
         int centerY = point.getY() + (webElement.getSize().getHeight() / 2);
@@ -34,7 +37,7 @@ public class ElementInteractions {
         driverManager.getMobileDriver().perform(Arrays.asList(tap));
     }
 
-    public void swipeVertical(WebElement webElement) {
+    private void swipeVertical(WebElement webElement) {
         Point point = webElement.getRect().getPoint();
         int startX = point.getX() / 2;
         int startY = (int) (point.getY() * 0.20);
@@ -50,7 +53,7 @@ public class ElementInteractions {
         driverManager.getMobileDriver().perform(Arrays.asList(swipe));
     }
 
-    public void swipeHorizontal(WebElement webElement) {
+    private void swipeHorizontal(WebElement webElement) {
         Point point = webElement.getRect().getPoint();
         int startX = point.getX() + (int) (webElement.getSize().getWidth() * 0.80);
         int endX = point.getX() + (int) (webElement.getSize().getWidth() * 0.20);
@@ -65,9 +68,63 @@ public class ElementInteractions {
         driverManager.getMobileDriver().perform(Arrays.asList(swipe));
     }
 
+    public void scrollToElementAndTap(Element element) {
+        JavascriptExecutor js = (JavascriptExecutor) driverManager.getMobileDriver();
+
+        while (driverManager.getMobileDriver().findElements(element.getLocator()).isEmpty()
+                || !driverManager.getMobileDriver().findElements(element.getLocator()).get(0).isDisplayed()) {
+            Map<String, Object> params = new HashMap<>();
+            params.put("left", 100);
+            params.put("top", 100);
+            params.put("width", 200);
+            params.put("height", 200);
+            params.put("direction", "down");
+            params.put("percent", 3.0);
+            js.executeScript("mobile: scrollGesture", params);
+        }
+
+        WebElement webElement = element.$(driverManager);
+        tap(webElement);
+    }
+
+    public void dragAndDrop(Element source, Element target) {
+        WebElement sourceElement = source.$(driverManager);
+        WebElement targetElement = target.$(driverManager);
+
+        int startX = sourceElement.getRect().getX() + sourceElement.getRect().getWidth() / 2;
+        int startY = sourceElement.getRect().getY() + sourceElement.getRect().getHeight() / 2;
+        int endX = targetElement.getRect().getX() + targetElement.getRect().getWidth() / 2;
+        int endY = targetElement.getRect().getY() + targetElement.getRect().getHeight() / 2;
+
+        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
+        Sequence dragAndDrop = new Sequence(finger, 0);
+
+        dragAndDrop.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY)); // Начальная позиция
+        dragAndDrop.addAction(finger.createPointerDown(PointerInput.Kind.TOUCH.ordinal())); // Нажимаем
+        dragAndDrop.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, endY)); // Перемещение к конечной позиции
+        dragAndDrop.addAction(finger.createPointerUp(PointerInput.Kind.TOUCH.ordinal())); // Отпускаем
+
+        // Выполняем действия
+        driverManager.getMobileDriver().perform(Arrays.asList(dragAndDrop));
+    }
+
+    private void setValue(WebElement webElement, String value) {
+        webElement.clear();
+        webElement.sendKeys(value);
+    }
+
+    public void setValue(Element element, String value) {
+        WebElement webElement = element.$(driverManager);
+        setValue(webElement, value);
+    }
+
     public void tap(Element element) {
         WebElement webElement = element.$(driverManager);
         tap(webElement);
+    }
+
+    public String getAttribute(Element element, String attribute) {
+        return element.$(driverManager).getAttribute(attribute);
     }
 
     public void swipeVertical(Element element) {

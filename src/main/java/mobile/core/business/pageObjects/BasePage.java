@@ -12,18 +12,20 @@ import org.openqa.selenium.By;
 
 import java.util.Set;
 
-public class BaseMobilePage {
+public class BasePage {
 
     protected AppiumDriver driver;
     protected DriverManager driverManager;
     protected ElementInteractions actions;
     protected BaseWaits baseWaits;
+    protected AlertPopup alertPopup;
 
-    public BaseMobilePage(DriverManager driverManager) {
+    public BasePage(DriverManager driverManager) {
         this.driver = driverManager.getMobileDriver();
         this.driverManager = driverManager;
         this.actions = new ElementInteractions(driverManager);
         this.baseWaits = new BaseWaits(driverManager);
+        this.alertPopup = new AlertPopup(driverManager, this.baseWaits, this.actions);
     }
 
     private static final Element HOME_PAGE = new Element(
@@ -32,28 +34,28 @@ public class BaseMobilePage {
             By.name("N/A"));
 
     private static final Element WEBVIEW_PAGE = new Element(
-            "Webdriver text",
+            "Webview page",
             AppiumBy.accessibilityId("Webview"),
             By.name("N/A"));
 
 
     private static final Element LOGIN_PAGE = new Element(
-            "Webdriver text",
+            "Login page",
             AppiumBy.accessibilityId("Login"),
             By.name("N/A"));
 
     private static final Element FORMS_PAGE = new Element(
-            "Webdriver text",
+            "Forms page",
             AppiumBy.accessibilityId("Forms"),
             By.name("N/A"));
 
     private static final Element SWIPE_PAGE = new Element(
-            "Webdriver text",
+            "Swipe page",
             AppiumBy.accessibilityId("Swipe"),
             By.name("N/A"));
 
     private static final Element DRAG_PAGE = new Element(
-            "Webdriver text",
+            "Drag page",
             AppiumBy.accessibilityId("Drag"),
             By.name("N/A"));
 
@@ -79,6 +81,14 @@ public class BaseMobilePage {
 
     public void tapToDragPage() {
         actions.tap(DRAG_PAGE);
+    }
+
+    public boolean isAlertPresent() {
+        return alertPopup.isAlertPresent();
+    }
+
+    public void closeAlert() {
+        alertPopup.clickOkButton();
     }
 
     public void switchToWebview() {
