@@ -100,7 +100,7 @@ public class ElementActions {
                     driverManager.getMobileDriver().findElements(element.getLocator()).get(0).isDisplayed()) {
                 WebElement webElement = element.$(driverManager);
                 tap(webElement);
-                break;
+                return;
             }
 
 

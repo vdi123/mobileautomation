@@ -13,7 +13,7 @@ public class SwipePage extends BasePage {
     }
 
     private static final Element SWIPE_HORIZONTAL_TEXT = new Element(
-            By.xpath("//android.widget.TextView[@text=\"Swipe horizontal\"]"),
+            AppiumBy.androidUIAutomator("new UiSelector().text(\"Swipe horizontal\")"),
             By.name("N/A"));
 
     private static final Element CARD_TO_SWIPE = new Element(
