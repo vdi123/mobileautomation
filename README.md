@@ -7,16 +7,19 @@ This is test automation framework built using **Appium**, **Java**, and **TestNG
 Here is the link for the Test Automation Framework schema:
 ![Mobile Framework Layers](src/test/resources/images/mobile_framework_layers.png)
 
-### Framework description
+### ⚙️ Pre-Start Settings
+
+Before running the tests, please ensure the following configurations are set up:
 
 1. **Run tests**
     - Test suite for Android is located to `src/test/resources/testSuites/android/base_tests.xml`.
     - To run the tests, ensure that the device is listed in `src/test/resources/testData/deviceData.json` (node of json with parameters). 
     - By default, the device `Emulator` with UDID `emulator-5554` is preconfigured. This means that if your emulator `emulator-5554` is running, the tests will pass.
 
-2. **Application Under Test**
+### Application Under Test
    - The test application is located at `src/test/resources/testApp/android.wdio.native.app.v1.0.8.apk`.
 
+### Framework description
 
 1. **BaseMobileTest**
     - Initializes the test environment by terminating any previous Appium server processes to ensure a clean run of appium server for each session. It also initializes the `DriverManager`.
