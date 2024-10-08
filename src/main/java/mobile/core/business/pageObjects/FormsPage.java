@@ -32,7 +32,8 @@ public class FormsPage extends BasePage {
             By.name("N/A"));
 
     private static final Element ACTIVATE_BUTTON = new Element(
-            AppiumBy.androidUIAutomator("new UiSelector().text(\"Active\")"),
+            AppiumBy.androidUIAutomator("new UiScrollable(new UiSelector().scrollable(true))" +
+                            ".scrollIntoView(new UiSelector().text(\"Active\"))"),
             By.name("N/A"));
 
 
@@ -58,7 +59,7 @@ public class FormsPage extends BasePage {
     }
 
     public void tapActivateButton(){
-        elementActions.scrollToElementAndTap(ACTIVATE_BUTTON);
+        elementActions.tap(ACTIVATE_BUTTON);
 
     }
 
