@@ -14,32 +14,26 @@ public class FormsPage extends BasePage {
     }
 
     private static final Element FORM_COMPONENTS_TEXT = new Element(
-            "Input field",
             AppiumBy.androidUIAutomator("new UiSelector().text(\"Form components\")"),
             By.name("N/A"));
 
     private static final Element INPUT_FILED = new Element(
-            "Input field",
             AppiumBy.accessibilityId("text-input"),
             By.name("N/A"));
 
     private static final Element SWITCH_OPTION = new Element(
-            "Switch option",
             AppiumBy.accessibilityId("switch"),
             By.name("N/A"));
 
     private static final Element DROPDOWN = new Element(
-            "Dropdown option",
             AppiumBy.accessibilityId("Dropdown"),
             By.name("N/A"));
 
     private static final Element DROPDOWN_OPTION_APPIUM = new Element(
-            "Dropdown option",
             AppiumBy.androidUIAutomator("new UiSelector().text(\"Appium is awesome\")"),
             By.name("N/A"));
 
     private static final Element ACTIVATE_BUTTON = new Element(
-            "Activate button",
             AppiumBy.androidUIAutomator("new UiSelector().text(\"Active\")"),
             By.name("N/A"));
 

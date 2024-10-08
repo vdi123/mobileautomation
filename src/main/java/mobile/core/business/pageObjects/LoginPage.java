@@ -13,17 +13,14 @@ public class LoginPage extends BasePage {
     }
 
     private static final Element LOGIN_BUTTON = new Element(
-            "Login button",
             AppiumBy.accessibilityId("button-LOGIN"),
             By.name("N/A"));
 
     private static final Element EMAIL_INPUT = new Element(
-            "Email input",
             AppiumBy.accessibilityId("input-email"),
             By.name("N/A"));
 
     private static final Element PASSWORD_INPUT = new Element(
-            "Password input",
             AppiumBy.accessibilityId("input-password"),
             By.name("N/A"));
 

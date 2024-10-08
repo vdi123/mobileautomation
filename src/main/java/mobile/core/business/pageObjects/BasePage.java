@@ -29,33 +29,27 @@ public class BasePage {
     }
 
     private static final Element HOME_PAGE = new Element(
-            "Home page",
             AppiumBy.accessibilityId("Home"),
             By.name("N/A"));
 
     private static final Element WEBVIEW_PAGE = new Element(
-            "Webview page",
             AppiumBy.accessibilityId("Webview"),
             By.name("N/A"));
 
 
     private static final Element LOGIN_PAGE = new Element(
-            "Login page",
             AppiumBy.accessibilityId("Login"),
             By.name("N/A"));
 
     private static final Element FORMS_PAGE = new Element(
-            "Forms page",
             AppiumBy.accessibilityId("Forms"),
             By.name("N/A"));
 
     private static final Element SWIPE_PAGE = new Element(
-            "Swipe page",
             AppiumBy.accessibilityId("Swipe"),
             By.name("N/A"));
 
     private static final Element DRAG_PAGE = new Element(
-            "Drag page",
             AppiumBy.accessibilityId("Drag"),
             By.name("N/A"));
 

@@ -12,102 +12,82 @@ public class DragPage extends BasePage {
     }
 
     private static final Element DRAG_AND_DROP_TEXT = new Element(
-            "Drag and drop text",
             AppiumBy.androidUIAutomator("new UiSelector().text(\"Drag and Drop\")"),
             By.name("N/A"));
 
     private static final Element RETRY_BUTTON = new Element(
-            "Retry button",
             AppiumBy.accessibilityId("button-Retry"),
             By.name("N/A"));
 
     private static final Element DRAG_L1_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-l1"),
             By.name("N/A"));
 
     private static final Element DROP_L1_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-l1"),
             By.name("N/A"));
 
     private static final Element DRAG_L2_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-l2"),
             By.name("N/A"));
 
     private static final Element DROP_L2_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-l2"),
             By.name("N/A"));
 
     private static final Element DRAG_L3_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-l3"),
             By.name("N/A"));
 
     private static final Element DROP_L3_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-l3"),
             By.name("N/A"));
 
     private static final Element DRAG_C1_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-c1"),
             By.name("N/A"));
 
     private static final Element DROP_C1_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-c1"),
             By.name("N/A"));
 
     private static final Element DRAG_C2_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-c2"),
             By.name("N/A"));
 
     private static final Element DROP_C2_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-c2"),
             By.name("N/A"));
 
     private static final Element DRAG_C3_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-c3"),
             By.name("N/A"));
 
     private static final Element DROP_C3_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-c3"),
             By.name("N/A"));
 
     private static final Element DRAG_R1_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-r1"),
             By.name("N/A"));
 
     private static final Element DROP_R1_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-r1"),
             By.name("N/A"));
 
     private static final Element DRAG_R2_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-r2"),
             By.name("N/A"));
 
     private static final Element DROP_R2_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-r2"),
             By.name("N/A"));
 
     private static final Element DRAG_R3_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drag-r3"),
             By.name("N/A"));
 
     private static final Element DROP_R3_OPTION = new Element(
-            "Drag option",
             AppiumBy.accessibilityId("drop-r3"),
             By.name("N/A"));
 

@@ -11,7 +11,6 @@ public class HomePage extends BasePage {
     }
 
     private static final Element WEBDRIVER_IO_TEXT = new Element(
-            "Webdriver text",
             By.xpath("//android.widget.TextView[@text=\"WEBDRIVER\"]"),
             By.name("N/A"));
 

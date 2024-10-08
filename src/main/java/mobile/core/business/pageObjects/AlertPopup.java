@@ -20,17 +20,14 @@ public class AlertPopup {
     }
 
     private static final Element ALERT_TITLE = new Element(
-            "Alert Title",
             AppiumBy.id("android:id/alertTitle"),
             By.name("N/A"));
 
     private static final Element ALERT_MESSAGE = new Element(
-            "Alert Message",
             AppiumBy.id("android:id/message"),
             By.name("N/A"));
 
     private static final Element OK_BUTTON = new Element(
-            "OK Button",
             AppiumBy.id("android:id/button1"),
             By.name("N/A"));
 

@@ -13,17 +13,14 @@ public class SwipePage extends BasePage {
     }
 
     private static final Element SWIPE_HORIZONTAL_TEXT = new Element(
-            "Swipe Horizontal text",
             By.xpath("//android.widget.TextView[@text=\"Swipe horizontal\"]"),
             By.name("N/A"));
 
     private static final Element CARD_TO_SWIPE = new Element(
-            "Card to swipe",
             AppiumBy.accessibilityId("card"),
             By.name("N/A"));
 
     private static final Element CARD_TEXT = new Element(
-            "Card text",
             By.xpath("//android.view.ViewGroup[@content-desc=\"slideTextContainer\"]//android.widget.TextView[@index='0']"),
             By.name("N/A"));
 

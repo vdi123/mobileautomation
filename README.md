@@ -23,14 +23,15 @@ Before running the tests, please ensure the following configurations are set up:
 
 1. **BaseMobileTest**
     - Initializes the test environment by terminating any previous Appium server processes to ensure a clean run of appium server for each session. It also initializes the `DriverManager`.
+     ```java
+        killNodeProcess();
+      ```
 
 2. **DriverManager Initialization**
     - The `DriverManager` is initialized with:
         - `platformName` (from `testng.xml`)
         - `testData` (name of JSON node) from `testData/deviceData.json` which contains:
-            - `DeviceType`
-            - `Udid`
-            - `mobileDeviceName`
+            - `udid`
             - `appPath`
 
 3. **Page Initialization**
@@ -46,7 +47,6 @@ Before running the tests, please ensure the following configurations are set up:
     - The custom element class defines locators for both Android and iOS platforms:
       ```java
       private static final Element HOME_PAGE = new Element(
-          "Home page",
           AppiumBy.accessibilityId("Home"),
           By.name("N/A"));
       ```

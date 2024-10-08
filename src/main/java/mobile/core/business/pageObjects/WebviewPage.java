@@ -11,7 +11,6 @@ public class WebviewPage extends BaseWebviewPage {
     }
 
     private static final Element WEB_VIEW_NATIVE_PAGE = new Element(
-            "Web view native app page",
             By.id("android:id/content"),
             By.name("N/A"));
 
