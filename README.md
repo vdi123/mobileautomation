@@ -22,6 +22,7 @@ Before running the tests, please ensure the following configurations are set up:
 
 ### Application Under Test
    - The test application is located at `src/test/resources/testApp/android.wdio.native.app.v1.0.8.apk`.
+   - The test appllication will be installed automatically.
 
 ### Framework description
 
@@ -81,6 +82,9 @@ Before running the tests, please ensure the following configurations are set up:
       
 8. **Assertions**
     - All assertions are handled at the test layer, ensuring clear separation between test logic and verification.
+
+9. **Allure results**
+   - Allure results is located to `target/allure-results`
 
 ## 🚀 Getting Started
 
