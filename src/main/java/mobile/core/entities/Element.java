@@ -30,7 +30,7 @@ public class Element {
             case IOS:
                 return findElementOnScreen(driverManager);
             default:
-                throw new RuntimeException("Unknown Mobile Platform");
+                throw new RuntimeException("Unsupported OS");
         }
     }
 
@@ -75,7 +75,7 @@ public class Element {
             case IOS:
                 return iosLocator;
             default:
-                throw new RuntimeException("Unknown Mobile Platform");
+                throw new RuntimeException("Unsupported OS");
         }
     }
 
@@ -86,7 +86,7 @@ public class Element {
             case IOS:
                 return iosLocator.toString();
             default:
-                throw new RuntimeException("Unknown Mobile Platform");
+                throw new RuntimeException("Unsupported OS");
         }
     }
 
@@ -101,7 +101,7 @@ public class Element {
                 locatorString = iosLocator.toString();
                 break;
             default:
-                throw new RuntimeException("Unknown Mobile Platform");
+                throw new RuntimeException("Unsupported OS");
         }
         return String.format(DriverManager.getMainPlatform() + " {%s}", locatorString);
     }
