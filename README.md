@@ -12,7 +12,11 @@ Here is the link for the Test Automation Framework schema:
 Before running the tests, please ensure the following configurations are set up:
 
 1. **Run tests**
-    - Test suite for Android is located to `src/test/resources/testSuites/android/base_tests.xml`.
+    - Test suite for Android is located to `src/test/resources/testSuites/android/base_tests.xml`. Testng xml file contains two parameters:
+    ```java
+    <parameter name="platformName" value="Android"/>
+    <parameter name="mobileDevice" value="Emulator"/>
+      ```
     - To run the tests, ensure that the device is listed in `src/test/resources/testData/deviceData.json` (node of json with parameters). 
     - By default, the device `Emulator` with UDID `emulator-5554` is preconfigured. This means that if your emulator `emulator-5554` is running, the tests will pass.
 
