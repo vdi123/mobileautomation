@@ -82,7 +82,7 @@ public class DemoAppTest extends BaseMobileTest {
         swipePage.tapToSwipePage();
         swipePage.waitPageAppears();
         String cardText1 = swipePage.getCardText();
-        swipePage.swipeCardHorizontal();
+        swipePage.swipeCardLeft();
         String cardText2 = swipePage.getCardText();
 
         assertThat(cardText1)

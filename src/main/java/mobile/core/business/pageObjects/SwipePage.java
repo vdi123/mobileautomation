@@ -24,8 +24,8 @@ public class SwipePage extends BasePage {
             By.xpath("//android.view.ViewGroup[@content-desc=\"slideTextContainer\"]//android.widget.TextView[@index='0']"),
             By.name("N/A"));
 
-    public void swipeCardHorizontal() {
-        elementActions.swipeHorizontal(CARD_TO_SWIPE);
+    public void swipeCardLeft() {
+        elementActions.swipeLeft(CARD_TO_SWIPE);
         Sleeper.sleepTight(300);
     }
 

@@ -12,6 +12,7 @@ public class AppiumServiceHelper {
     public static AppiumDriverLocalService getLocalService(int port) {
         AppiumServiceBuilder builder = new AppiumServiceBuilder();
         builder.usingPort(port);
+        builder.withArgument(GeneralServerFlag.USE_PLUGINS, "gestures");
 
         builder.withArgument(GeneralServerFlag.LOG_LEVEL, "error:debug");
 

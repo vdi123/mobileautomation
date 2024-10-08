@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.remote.RemoteWebElement;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -43,35 +44,51 @@ public class ElementActions {
         driverManager.getMobileDriver().perform(Arrays.asList(tap));
     }
 
-    private void swipeVertical(WebElement webElement) {
-        Point point = webElement.getRect().getPoint();
-        int startX = point.getX() / 2;
-        int startY = (int) (point.getY() * 0.20);
-        int endY = (int) (point.getY() * 0.80);
-
-
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence swipe = new Sequence(finger, 1);
-        swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, startY));
-        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        swipe.addAction(finger.createPointerMove(Duration.ofMillis(600), PointerInput.Origin.viewport(), startX, endY));
-        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driverManager.getMobileDriver().perform(Arrays.asList(swipe));
+    public void scrollElementIntoView(Element element) {
+        WebElement webElement = element.$(driverManager);
+        scrollElementIntoView(webElement);
     }
 
-    private void swipeHorizontal(WebElement webElement) {
-        Point point = webElement.getRect().getPoint();
-        int startX = point.getX() + (int) (webElement.getSize().getWidth() * 0.80);
-        int endX = point.getX() + (int) (webElement.getSize().getWidth() * 0.20);
-        int centerY = point.getY() + (webElement.getSize().getHeight() / 2);
+    private void scrollElementIntoView(WebElement webElement) {
+        RemoteWebElement remoteElement = (RemoteWebElement) webElement;
+        driverManager.getMobileDriver().executeScript("gesture: scrollElementIntoView", Map.of("scrollableView", remoteElement.getId(),
+                "strategy", "accessibility id",
+                "selector", "WebdriverIO logo",
+                "percentage", 50,
+                "direction", "up",
+                "maxCount", 3));
+    }
 
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence swipe = new Sequence(finger, 1);
-        swipe.addAction(finger.createPointerMove(Duration.ZERO, PointerInput.Origin.viewport(), startX, centerY));
-        swipe.addAction(finger.createPointerDown(PointerInput.MouseButton.LEFT.asArg()));
-        swipe.addAction(finger.createPointerMove(Duration.ofMillis(600), PointerInput.Origin.viewport(), endX, centerY));
-        swipe.addAction(finger.createPointerUp(PointerInput.MouseButton.LEFT.asArg()));
-        driverManager.getMobileDriver().perform(Arrays.asList(swipe));
+    private void swipeUp(WebElement webElement) {
+        RemoteWebElement remoteElement = (RemoteWebElement) webElement;
+        driverManager.getMobileDriver()
+                .executeScript("gesture: swipe",
+                        Map.of("elementId", remoteElement.getId(),
+                                "percentage", 50, "direction", "up"));
+    }
+
+    private void swipeDown(WebElement webElement) {
+        RemoteWebElement remoteElement = (RemoteWebElement) webElement;
+        driverManager.getMobileDriver()
+                .executeScript("gesture: swipe",
+                        Map.of("elementId", remoteElement.getId(),
+                                "percentage", 50, "direction", "down"));
+    }
+
+    private void swipeLeft(WebElement webElement) {
+        RemoteWebElement remoteElement = (RemoteWebElement) webElement;
+        driverManager.getMobileDriver()
+                .executeScript("gesture: swipe",
+                        Map.of("elementId", remoteElement.getId(),
+                                "percentage", 50, "direction", "left"));
+    }
+
+    private void swipeRight(WebElement webElement) {
+        RemoteWebElement remoteElement = (RemoteWebElement) webElement;
+        driverManager.getMobileDriver()
+                .executeScript("gesture: swipe",
+                        Map.of("elementId", remoteElement.getId(),
+                                "percentage", 50, "direction", "right"));
     }
 
     public void scrollToElementAndTap(Element element) {
@@ -97,20 +114,15 @@ public class ElementActions {
         WebElement sourceElement = source.$(driverManager);
         WebElement targetElement = target.$(driverManager);
 
-        int startX = sourceElement.getRect().getX() + sourceElement.getRect().getWidth() / 2;
-        int startY = sourceElement.getRect().getY() + sourceElement.getRect().getHeight() / 2;
-        int endX = targetElement.getRect().getX() + targetElement.getRect().getWidth() / 2;
-        int endY = targetElement.getRect().getY() + targetElement.getRect().getHeight() / 2;
+        dragAndDrop(sourceElement, targetElement);
+    }
 
-        PointerInput finger = new PointerInput(PointerInput.Kind.TOUCH, "finger");
-        Sequence dragAndDrop = new Sequence(finger, 0);
-
-        dragAndDrop.addAction(finger.createPointerMove(Duration.ofMillis(0), PointerInput.Origin.viewport(), startX, startY)); // Начальная позиция
-        dragAndDrop.addAction(finger.createPointerDown(PointerInput.Kind.TOUCH.ordinal()));
-        dragAndDrop.addAction(finger.createPointerMove(Duration.ofMillis(1000), PointerInput.Origin.viewport(), endX, endY)); // Перемещение к конечной позиции
-        dragAndDrop.addAction(finger.createPointerUp(PointerInput.Kind.TOUCH.ordinal()));
-
-        driverManager.getMobileDriver().perform(Arrays.asList(dragAndDrop));
+    public void dragAndDrop(WebElement source, WebElement target) {
+        RemoteWebElement sourceElement = (RemoteWebElement) source;
+        RemoteWebElement targetElement = (RemoteWebElement) target;
+        driverManager.getMobileDriver()
+                .executeScript("gesture: dragAndDrop",
+                        Map.of("sourceId", sourceElement.getId(), "destinationId", targetElement.getId()));
     }
 
     private void setValue(WebElement webElement, String value) {
@@ -127,14 +139,24 @@ public class ElementActions {
         return element.$(driverManager).getAttribute(attribute);
     }
 
-    public void swipeVertical(Element element) {
+    public void swipeUp(Element element) {
         WebElement webElement = element.$(driverManager);
-        swipeVertical(webElement);
+        swipeUp(webElement);
     }
 
-    public void swipeHorizontal(Element element) {
+    public void swipeDown(Element element) {
         WebElement webElement = element.$(driverManager);
-        swipeHorizontal(webElement);
+        swipeDown(webElement);
+    }
+
+    public void swipeLeft(Element element) {
+        WebElement webElement = element.$(driverManager);
+        swipeLeft(webElement);
+    }
+
+    public void swipeRight(Element element) {
+        WebElement webElement = element.$(driverManager);
+        swipeRight(webElement);
     }
 
     public String getText(Element element) {
