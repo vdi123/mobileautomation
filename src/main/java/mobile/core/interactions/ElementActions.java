@@ -4,6 +4,7 @@ package mobile.core.interactions;
 import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Pause;
@@ -94,8 +95,15 @@ public class ElementActions {
     public void scrollToElementAndTap(Element element) {
         JavascriptExecutor js = (JavascriptExecutor) driverManager.getMobileDriver();
 
-        while (driverManager.getMobileDriver().findElements(element.getLocator()).isEmpty()
-                || !driverManager.getMobileDriver().findElements(element.getLocator()).get(0).isDisplayed()) {
+        for (int i = 0; i < 5; i++) {
+            if (!driverManager.getMobileDriver().findElements(element.getLocator()).isEmpty() &&
+                    driverManager.getMobileDriver().findElements(element.getLocator()).get(0).isDisplayed()) {
+                WebElement webElement = element.$(driverManager);
+                tap(webElement);
+                break;
+            }
+
+
             Map<String, Object> params = new HashMap<>();
             params.put("left", 100);
             params.put("top", 100);
@@ -106,8 +114,7 @@ public class ElementActions {
             js.executeScript("mobile: scrollGesture", params);
         }
 
-        WebElement webElement = element.$(driverManager);
-        tap(webElement);
+        throw new NoSuchElementException("Element not found after 5 scroll attempts: " + element.getLocator());
     }
 
     public void dragAndDrop(Element source, Element target) {
