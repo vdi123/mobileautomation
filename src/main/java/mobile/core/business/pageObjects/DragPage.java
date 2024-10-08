@@ -92,17 +92,17 @@ public class DragPage extends BasePage {
             By.name("N/A"));
 
     public void dragAndDropElements() {
-        actions.dragAndDrop(DRAG_L1_OPTION, DROP_L1_OPTION);
-        actions.dragAndDrop(DRAG_L2_OPTION, DROP_L2_OPTION);
-        actions.dragAndDrop(DRAG_L3_OPTION, DROP_L3_OPTION);
+        elementActions.dragAndDrop(DRAG_L1_OPTION, DROP_L1_OPTION);
+        elementActions.dragAndDrop(DRAG_L2_OPTION, DROP_L2_OPTION);
+        elementActions.dragAndDrop(DRAG_L3_OPTION, DROP_L3_OPTION);
 
-        actions.dragAndDrop(DRAG_C1_OPTION, DROP_C1_OPTION);
-        actions.dragAndDrop(DRAG_C2_OPTION, DROP_C2_OPTION);
-        actions.dragAndDrop(DRAG_C3_OPTION, DROP_C3_OPTION);
+        elementActions.dragAndDrop(DRAG_C1_OPTION, DROP_C1_OPTION);
+        elementActions.dragAndDrop(DRAG_C2_OPTION, DROP_C2_OPTION);
+        elementActions.dragAndDrop(DRAG_C3_OPTION, DROP_C3_OPTION);
 
-        actions.dragAndDrop(DRAG_R1_OPTION, DROP_R1_OPTION);
-        actions.dragAndDrop(DRAG_R2_OPTION, DROP_R2_OPTION);
-        actions.dragAndDrop(DRAG_R3_OPTION, DROP_R3_OPTION);
+        elementActions.dragAndDrop(DRAG_R1_OPTION, DROP_R1_OPTION);
+        elementActions.dragAndDrop(DRAG_R2_OPTION, DROP_R2_OPTION);
+        elementActions.dragAndDrop(DRAG_R3_OPTION, DROP_R3_OPTION);
     }
 
     public void waitPageAppears() {

@@ -3,7 +3,7 @@ package mobile.core.business.pageObjects;
 import io.appium.java_client.AppiumBy;
 import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
-import mobile.core.interactions.ElementInteractions;
+import mobile.core.interactions.ElementActions;
 import mobile.core.waiters.BaseWaits;
 import org.openqa.selenium.By;
 
@@ -11,12 +11,12 @@ public class AlertPopup {
 
     protected DriverManager driverManager;
     protected BaseWaits baseWaits;
-    protected ElementInteractions actions;
+    protected ElementActions elementActions;
 
-    public AlertPopup(DriverManager driverManager, BaseWaits baseWaits, ElementInteractions actions) {
+    public AlertPopup(DriverManager driverManager, BaseWaits baseWaits, ElementActions elementActions) {
         this.driverManager = driverManager;
         this.baseWaits = baseWaits;
-        this.actions = actions;
+        this.elementActions = elementActions;
     }
 
     private static final Element ALERT_TITLE = new Element(
@@ -37,16 +37,16 @@ public class AlertPopup {
 
     public String getAlertTitle() {
         baseWaits.waitForElementPresence(ALERT_TITLE);
-        return actions.getText(ALERT_TITLE);
+        return elementActions.getText(ALERT_TITLE);
     }
 
     public String getAlertMessage() {
         baseWaits.waitForElementPresence(ALERT_MESSAGE);
-        return actions.getText(ALERT_MESSAGE);
+        return elementActions.getText(ALERT_MESSAGE);
     }
 
     public void clickOkButton() {
         baseWaits.waitForElementPresence(OK_BUTTON);
-        actions.tap(OK_BUTTON);
+        elementActions.tap(OK_BUTTON);
     }
 }

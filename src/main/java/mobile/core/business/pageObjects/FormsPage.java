@@ -5,8 +5,6 @@ import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
 import org.openqa.selenium.By;
 
-import static mobile.core.utils.RandomStringGenerator.generateRandomString;
-
 public class FormsPage extends BasePage {
 
     public FormsPage(DriverManager driverManager) {
@@ -39,28 +37,28 @@ public class FormsPage extends BasePage {
 
 
     public void setInputFiled(String text) {
-        actions.setValue(INPUT_FILED, text);
+        elementActions.setValue(INPUT_FILED, text);
     }
 
     public void turnOnSwitchOption() {
         if (!isSwitchOptionOn()) {
-            actions.tap(SWITCH_OPTION);
+            elementActions.tap(SWITCH_OPTION);
         }
     }
 
     public boolean isSwitchOptionOn() {
-        return Boolean.parseBoolean(actions.getAttribute(SWITCH_OPTION, "checked"));
+        return Boolean.parseBoolean(elementActions.getAttribute(SWITCH_OPTION, "checked"));
     }
 
     public void chooseOptionFromDropdown(){
-        actions.tap(DROPDOWN);
+        elementActions.tap(DROPDOWN);
         baseWaits.waitElementAppeared(DROPDOWN_OPTION_APPIUM);
-        actions.tap(DROPDOWN_OPTION_APPIUM);
+        elementActions.tap(DROPDOWN_OPTION_APPIUM);
 
     }
 
     public void tapActivateButton(){
-        actions.scrollToElementAndTap(ACTIVATE_BUTTON);
+        elementActions.scrollToElementAndTap(ACTIVATE_BUTTON);
 
     }
 

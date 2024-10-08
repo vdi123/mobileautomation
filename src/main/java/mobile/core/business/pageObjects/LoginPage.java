@@ -26,9 +26,9 @@ public class LoginPage extends BasePage {
 
 
     public void login(User user) {
-        actions.setValue(EMAIL_INPUT, user.getUsername());
-        actions.setValue(PASSWORD_INPUT, user.getPassword());
-        actions.tap(LOGIN_BUTTON);
+        elementActions.setValue(EMAIL_INPUT, user.getUsername());
+        elementActions.setValue(PASSWORD_INPUT, user.getPassword());
+        elementActions.tap(LOGIN_BUTTON);
     }
 
     public void waitPageAppears() {

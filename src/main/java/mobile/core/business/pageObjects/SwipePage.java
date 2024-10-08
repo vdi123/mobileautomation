@@ -25,12 +25,12 @@ public class SwipePage extends BasePage {
             By.name("N/A"));
 
     public void swipeCardHorizontal() {
-        actions.swipeHorizontal(CARD_TO_SWIPE);
+        elementActions.swipeHorizontal(CARD_TO_SWIPE);
         Sleeper.sleepTight(300);
     }
 
     public String getCardText() {
-        return actions.getText(CARD_TEXT);
+        return elementActions.getText(CARD_TEXT);
     }
 
     public void waitPageAppears() {

@@ -15,14 +15,20 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ElementInteractions {
+public class ElementActions {
 
     protected DriverManager driverManager;
 
-    public ElementInteractions(DriverManager driverManager) {
+    public ElementActions(DriverManager driverManager) {
         this.driverManager = driverManager;
     }
 
+    public void tap(Element element) {
+        WebElement webElement = element.$(driverManager);
+        tap(webElement);
+    }
+
+    //Can use just click(), but this sequence is more natural way to tap
     private void tap(WebElement webElement) {
         Point point = webElement.getRect().getPoint();
         int centerX = point.getX() + (webElement.getSize().getWidth() / 2);
@@ -115,11 +121,6 @@ public class ElementInteractions {
     public void setValue(Element element, String value) {
         WebElement webElement = element.$(driverManager);
         setValue(webElement, value);
-    }
-
-    public void tap(Element element) {
-        WebElement webElement = element.$(driverManager);
-        tap(webElement);
     }
 
     public String getAttribute(Element element, String attribute) {

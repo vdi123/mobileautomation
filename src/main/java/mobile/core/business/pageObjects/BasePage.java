@@ -6,7 +6,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
-import mobile.core.interactions.ElementInteractions;
+import mobile.core.interactions.ElementActions;
 import mobile.core.waiters.BaseWaits;
 import org.openqa.selenium.By;
 
@@ -16,16 +16,16 @@ public class BasePage {
 
     protected AppiumDriver driver;
     protected DriverManager driverManager;
-    protected ElementInteractions actions;
+    protected ElementActions elementActions;
     protected BaseWaits baseWaits;
     protected AlertPopup alertPopup;
 
     public BasePage(DriverManager driverManager) {
         this.driver = driverManager.getMobileDriver();
         this.driverManager = driverManager;
-        this.actions = new ElementInteractions(driverManager);
+        this.elementActions = new ElementActions(driverManager);
         this.baseWaits = new BaseWaits(driverManager);
-        this.alertPopup = new AlertPopup(driverManager, this.baseWaits, this.actions);
+        this.alertPopup = new AlertPopup(driverManager, this.baseWaits, this.elementActions);
     }
 
     private static final Element HOME_PAGE = new Element(
@@ -54,27 +54,27 @@ public class BasePage {
             By.name("N/A"));
 
     public void tapToHomePage() {
-        actions.tap(HOME_PAGE);
+        elementActions.tap(HOME_PAGE);
     }
 
     public void tapToWebViewPage() {
-        actions.tap(WEBVIEW_PAGE);
+        elementActions.tap(WEBVIEW_PAGE);
     }
 
     public void tapToLoginPage() {
-        actions.tap(LOGIN_PAGE);
+        elementActions.tap(LOGIN_PAGE);
     }
 
     public void tapToFormsPage() {
-        actions.tap(FORMS_PAGE);
+        elementActions.tap(FORMS_PAGE);
     }
 
     public void tapToSwipePage() {
-        actions.tap(SWIPE_PAGE);
+        elementActions.tap(SWIPE_PAGE);
     }
 
     public void tapToDragPage() {
-        actions.tap(DRAG_PAGE);
+        elementActions.tap(DRAG_PAGE);
     }
 
     public boolean isAlertPresent() {

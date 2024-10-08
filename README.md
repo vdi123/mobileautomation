@@ -44,7 +44,7 @@ Before running the tests, please ensure the following configurations are set up:
       ```java
       this.driver = driverManager.getMobileDriver();
       this.driverManager = driverManager;
-      this.actions = new ElementInteractions(driverManager);
+      this.actions = new ElementActions(driverManager);
       this.baseWaits = new BaseWaits(driverManager);
       ```
 
@@ -61,7 +61,7 @@ Before running the tests, please ensure the following configurations are set up:
     - Pages utilize the `ElementInteractions` class for all action methods:
       ```java
       public void tapToHomePage() {
-          actions.tap(HOME_PAGE);
+          elementActions.tap(HOME_PAGE);
       }
       ```
 
@@ -71,18 +71,23 @@ Before running the tests, please ensure the following configurations are set up:
 7. **Business Objects**
     - Services and page methods can utilize business objects, allowing for structured data management.
       ```java
-      
       public void login(User user) {
-        actions.setValue(EMAIL_INPUT, user.getUsername());
-        actions.setValue(PASSWORD_INPUT, user.getPassword());
-        actions.tap(LOGIN_BUTTON);
+        elementActions.setValue(EMAIL_INPUT, user.getUsername());
+        elementActions.setValue(PASSWORD_INPUT, user.getPassword());
+        elementActions.tap(LOGIN_BUTTON);
       }
       
       ```
       
 8. **Assertions**
     - All assertions are handled at the test layer, ensuring clear separation between test logic and verification.
-
+   ```java
+       assertThat(webviewPage.isWebViewContentDisplayed())
+                .as("Webview content is not displayed")
+                .isTrue();
+      
+      ```
+      
 9. **Allure results**
    - Allure results is located to `target/allure-results`
 
