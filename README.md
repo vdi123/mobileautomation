@@ -11,7 +11,13 @@ Here is the link for the Test Automation Framework schema:
 
 Before running the tests, please ensure the following configurations are set up:
 
-1. **Run tests**
+1. **Install driver and plugins**
+   ```java
+   appium driver install uiautomator2
+   appium plugin install gestures
+      ```
+  
+2. **Run tests**
     - Test suite for Android is located to `src/test/resources/testSuites/android/base_tests.xml`. Testng xml file contains two parameters:
     ```java
     <parameter name="platformName" value="Android"/>
