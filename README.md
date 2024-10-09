@@ -50,7 +50,7 @@ Before running the tests, please ensure the following configurations are set up:
       ```java
       this.driver = driverManager.getMobileDriver();
       this.driverManager = driverManager;
-      this.actions = new ElementActions(driverManager);
+      this.elementActions = new ElementActions(driverManager);
       this.baseWaits = new BaseWaits(driverManager);
       ```
 
