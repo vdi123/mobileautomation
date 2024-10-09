@@ -2,11 +2,6 @@
 
 This is test automation framework built using **Appium**, **Java**, and **TestNG**. The framework is designed to facilitate automated testing of mobile applications on both Android and iOS platforms(IOS part is not implemented yet).
 
-### Application Under Test
-- The test application is located at `src/test/resources/testApp/android.wdio.native.app.v1.0.8.apk`.
-- The test appllication will be installed automatically.
-  ![Test app](src/test/resources/images/testApp.png)
-
 ## 📊 Framework Architecture
 
 Here is the link for the Test Automation Framework schema:
@@ -30,6 +25,10 @@ Before running the tests, please ensure the following configurations are set up:
       ```
     - To run the tests, ensure that the device is listed in `src/test/resources/testData/deviceData.json` (node of json with parameters). 
     - By default, the device `Emulator` with UDID `emulator-5554` is preconfigured. This means that if your emulator `emulator-5554` is running, the tests will pass.
+
+### Application Under Test
+   - The test application is located at `src/test/resources/testApp/android.wdio.native.app.v1.0.8.apk`.
+   - The test appllication will be installed automatically.
 
 ### Framework description
 
