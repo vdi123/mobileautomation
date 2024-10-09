@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import lombok.extern.slf4j.Slf4j;
-import mobile.core.business.businessObjects.DeviceData;
+import mobile.core.business.businessobjects.DeviceData;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;

@@ -1,7 +1,7 @@
-package mobile.core.business.pageObjects;
+package mobile.core.business.pageobjects;
 
 import io.appium.java_client.AppiumBy;
-import mobile.core.business.businessObjects.User;
+import mobile.core.business.businessobjects.User;
 import mobile.core.driver.DriverManager;
 import mobile.core.entities.Element;
 import org.openqa.selenium.By;

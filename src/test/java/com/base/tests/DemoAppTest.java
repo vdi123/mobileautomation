@@ -1,8 +1,8 @@
 package com.base.tests;
 
 import io.qameta.allure.Description;
-import mobile.core.business.businessObjects.User;
-import mobile.core.business.pageObjects.*;
+import mobile.core.business.businessobjects.User;
+import mobile.core.business.pageobjects.*;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 

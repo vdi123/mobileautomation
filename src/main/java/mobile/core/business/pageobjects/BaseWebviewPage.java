@@ -1,4 +1,4 @@
-package mobile.core.business.pageObjects;
+package mobile.core.business.pageobjects;
 
 import mobile.core.driver.DriverManager;
 

@@ -5,7 +5,7 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import lombok.Getter;
-import mobile.core.business.businessObjects.DeviceData;
+import mobile.core.business.businessobjects.DeviceData;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;

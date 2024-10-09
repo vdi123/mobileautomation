@@ -1,4 +1,4 @@
-package mobile.core.business.businessObjects;
+package mobile.core.business.businessobjects;
 
 import lombok.Builder;
 import lombok.Getter;
