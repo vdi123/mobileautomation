@@ -59,7 +59,7 @@ public class DriverManager {
     }
 
     public void shutDown() {
-        if (service.isRunning()) {
+        if (service != null && service.isRunning()) {
             service.stop();
         }
     }
