@@ -124,7 +124,7 @@ public class ElementActions {
         dragAndDrop(sourceElement, targetElement);
     }
 
-    public void dragAndDrop(WebElement source, WebElement target) {
+    private void dragAndDrop(WebElement source, WebElement target) {
         RemoteWebElement sourceElement = (RemoteWebElement) source;
         RemoteWebElement targetElement = (RemoteWebElement) target;
         driverManager.getMobileDriver()
