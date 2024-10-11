@@ -5,6 +5,9 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import lombok.Getter;
 import mobile.core.business.businessobjects.DeviceData;
+import mobile.core.driver.factory.AndroidDriverFactory;
+import mobile.core.driver.factory.DriverFactory;
+import mobile.core.driver.factory.IOSDriverFactory;
 
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 import static io.appium.java_client.remote.MobilePlatform.IOS;

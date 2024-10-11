@@ -1,9 +1,10 @@
-package mobile.core.driver;
+package mobile.core.driver.factory;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import mobile.core.business.businessobjects.DeviceData;
+import mobile.core.driver.DriverManager;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;

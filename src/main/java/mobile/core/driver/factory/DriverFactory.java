@@ -1,4 +1,4 @@
-package mobile.core.driver;
+package mobile.core.driver.factory;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
