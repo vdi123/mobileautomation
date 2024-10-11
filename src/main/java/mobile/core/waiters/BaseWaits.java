@@ -24,7 +24,8 @@ public class BaseWaits extends FluentWait<DriverManager> {
         Wait<DriverManager> wait = new FluentWait<>(driverManager)
                 .withTimeout(Duration.ofSeconds(30))
                 .pollingEvery(Duration.ofSeconds(1))
-                .ignoring(NoSuchElementException.class);
+                .ignoring(NoSuchElementException.class)
+                .ignoring(ArrayIndexOutOfBoundsException.class);
         wait.until(driverManager -> element.$(driverManager).isDisplayed() && element.$(driverManager).isEnabled());
     }
 

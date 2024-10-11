@@ -59,6 +59,7 @@ public class FormsPage extends BasePage {
     }
 
     public void tapActivateButton(){
+        elementActions.scrollElementIntoView(ACTIVATE_BUTTON);
         elementActions.tap(ACTIVATE_BUTTON);
 
     }
