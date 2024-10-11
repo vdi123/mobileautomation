@@ -22,7 +22,6 @@ public class DriverManager {
     public static String mainPlatform;
     private DeviceData deviceData;
     protected AppiumDriverLocalService service;
-    protected Map<String, Object> capabilities = new HashMap<>();
     protected AppiumDriver driver;
 
     public DriverManager(String mainPlatform, DeviceData deviceData) {
