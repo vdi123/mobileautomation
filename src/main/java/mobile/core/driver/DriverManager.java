@@ -2,17 +2,10 @@ package mobile.core.driver;
 
 
 import io.appium.java_client.AppiumDriver;
-import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
 import lombok.Getter;
 import mobile.core.business.businessobjects.DeviceData;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
-import java.io.File;
-import java.util.HashMap;
-import java.util.Map;
-
-import static io.appium.java_client.Setting.ALLOW_INVISIBLE_ELEMENTS;
 import static io.appium.java_client.remote.MobilePlatform.ANDROID;
 import static io.appium.java_client.remote.MobilePlatform.IOS;
 
